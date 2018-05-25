@@ -1,0 +1,24 @@
+<%= form_tag book_path do |f| %>
+<li>
+	 <%= gravatar_for home %>
+
+
+
+  <% session[:home]= home %>
+  	<%= home.name %>
+  	&nbsp&nbsp&nbsp
+  	   <%= submit_tag "Book"%>
+       <!--input type="hidden" name="home" value= <%=home%> />-->
+  	<br>
+  	Price: 
+  	<%= home.price %>
+  </br>
+  	Occupancy: 
+  	<%= home.occupancy %>
+  	<br>
+
+  </span>
+
+
+</li>
+<% end %>

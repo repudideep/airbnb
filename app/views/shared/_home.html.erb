@@ -1,0 +1,6 @@
+<% if @home_items.try(:any?) %>
+  <ol class="homes">
+    <%= render partial: 'shared/home_item', collection: @home_items %>
+  </ol>
+  <%= will_paginate @home_items %>
+<% end %>
