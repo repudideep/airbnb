@@ -5,18 +5,18 @@ before_filter :signed_in_user, only: [:book]
 		@booking = Booking.new
 		user = current_user
 		home =     session[:home]
-		debugger
+		#debugger
 		@booking.user_id=user.id
 		@booking.home_id=home.id
 		@booking.from = session[:from_date]
 		@booking.to = session[:to_date]
 		@booking.inmates = session[:inmates]
 		home_details = Home.select("name,place").where(id: home)
-		debugger
+		#debugger
 		home_name = home_details[0].name
 		home_place = home_details[0].place
 		@booking.save
-		debugger
+		#debugger
 		
 		flash.now[:success] = "Congratulations! "+home_name+" - "+home_place+" booked successfully!"
 		

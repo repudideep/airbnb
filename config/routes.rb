@@ -13,8 +13,9 @@ Airbnb::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/search', to: 'homes#show'
-  match '/signout', to: 'sessions#destroy'
+  match '/signout', to: 'sessions#destroy', via: :delete
   match '/book', to: 'bookings#book'
+  #match '/validate', to: 'homes#validate'
 
 
   # The priority is based upon order of creation:

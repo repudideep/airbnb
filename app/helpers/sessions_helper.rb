@@ -1,6 +1,5 @@
 module SessionsHelper
   def sign_in(user)
-    debugger
     cookies.permanent[:remember_token] = user.remember_token
     self.current_user = user
   end
@@ -14,10 +13,12 @@ module SessionsHelper
   end
 
    def signed_in?
+    #debugger
     !current_user.nil?
   end
 
   def sign_out
+    #debugger
     self.current_user = nil
   	cookies.delete(:remember_token)
   end
@@ -37,9 +38,7 @@ module SessionsHelper
   end
 
    def signed_in_user
-        debugger
         unless signed_in?
-          debugger
         store_location
         redirect_to signin_url, notice: "Please sign in." unless signed_in?
         end
