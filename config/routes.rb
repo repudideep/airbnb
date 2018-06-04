@@ -4,7 +4,7 @@ Airbnb::Application.routes.draw do
 
 
   resources :users
-  resources :homes
+  resources :homes, only: [:show]
   resources :sessions, only: [:new, :create]
   resources :bookings
 

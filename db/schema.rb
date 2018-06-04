@@ -11,27 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180522102618) do
+ActiveRecord::Schema.define(:version => 20180531062803) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "user_id"
     t.integer  "home_id"
+    t.integer  "inmates"
     t.date     "from"
     t.date     "to"
-    t.integer  "inmates"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "bookings", ["user_id", "home_id", "created_at"], :name => "index_bookings_on_user_id_and_home_id_and_created_at"
-
   create_table "homes", :force => true do |t|
-    t.string   "name"
-    t.string   "place"
-    t.integer  "occupancy"
-    t.integer  "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string  "name"
+    t.string  "place"
+    t.integer "price"
+    t.integer "occupancy"
   end
 
   create_table "users", :force => true do |t|
@@ -39,11 +35,8 @@ ActiveRecord::Schema.define(:version => 20180522102618) do
     t.string   "email"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "password_digest"
   end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

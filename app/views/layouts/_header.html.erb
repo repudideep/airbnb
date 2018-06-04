@@ -3,7 +3,7 @@
     <div class="container">
       <nav>
         <ul class="nav pull-left">
-            <%= image_tag("rails.png", :alt => "airbnb") %>
+            <%= link_to image_tag("rails.png", alt: "airbnb"), 'http://localhost:3000/' %>
             </ul>
         <ul class="nav pull-right">
           <% if signed_in? %>

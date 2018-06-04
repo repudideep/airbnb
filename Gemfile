@@ -13,7 +13,9 @@ gem 'chronic'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
- gem 'sqlite3'
+ #gem 'sqlite3'
+ gem 'mysql2', '~> 0.3.0'
+ # gem 'activerecord-mysql2-adapter'
  gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
  gem 'test-unit', '~> 3.0'
 end

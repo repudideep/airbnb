@@ -1,1 +1,1 @@
-AIRBNB sample with SQLite
+airbnb model app for practice by Pradeep will_paginate, session

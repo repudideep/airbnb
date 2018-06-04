@@ -3,8 +3,6 @@ class Home < ActiveRecord::Base
   has_many :bookings
   has_many :users, through: :bookings
 
-  scope :unique_by_place, lambda { select('DISTINCT(place)') }
-
   
   # def self.vacant_homes(home)
   	# includes:(:bookings).

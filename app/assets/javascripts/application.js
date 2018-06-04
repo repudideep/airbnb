@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require_tree .
 
 function about() {
@@ -26,3 +27,19 @@ function about() {
         info.innerHTML = xhr.responseText;
         info.style.display = 'block'
       }
+
+
+var dateToday = new Date();
+var dates = $("#checkin_val, #checkout_val").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 3,
+    minDate: dateToday,
+    onSelect: function(selectedDate) {
+        var option = this.id == "checkin_val" ? "minDate" : "maxDate",
+            instance = $(this).data("datepicker"),
+            date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
+        dates.not(this).datepicker("option", option, date);
+    }
+});
+

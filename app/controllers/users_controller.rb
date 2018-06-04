@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :update, :store_location]
-  before_filter :correct_user,   only: [:edit, :update]
+  before_filter :correct_user,   except: [:new, :create]
 
-def index
-	@users = User.all
-end  
+
 
 def show
+
     @user = User.find(params[:id])
+    @bookings = @user.bookings.paginate(page: params[:page], :per_page => 5)
+     #debugger
   end
   
   def new
@@ -15,7 +16,7 @@ def show
   end
 
 def create
-  debugger
+  #debugger
     @user = User.new(params[:user])
     if @user.save
       sign_in @user

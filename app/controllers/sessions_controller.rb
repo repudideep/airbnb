@@ -17,9 +17,9 @@ def new
   end
 
   def destroy
-    debugger
+    #debugger
   	sign_out
-    debugger
+    #debugger
   	redirect_to root_url
   end
 

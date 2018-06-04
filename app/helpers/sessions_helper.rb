@@ -13,14 +13,14 @@ module SessionsHelper
   end
 
    def signed_in?
-    #debugger
     !current_user.nil?
   end
 
   def sign_out
-    #debugger
     self.current_user = nil
-  	cookies.delete(:remember_token)
+  	debugger
+    cookies.delete(:remember_token)
+    reset_session
   end
 
   def current_user?(user)
@@ -33,7 +33,7 @@ module SessionsHelper
   end
 
   def store_location
-    debugger
+    #debugger
     session[:return_to] = request.url
   end
 

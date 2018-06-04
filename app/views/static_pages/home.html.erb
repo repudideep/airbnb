@@ -4,13 +4,13 @@
 
       <%= form_tag search_path do %>
           <label for="place">PLACE</label>
-          <%= select_tag("place", options_from_collection_for_select(Home.all, 'place', 'place', '1'))%>
+          <%= select_tag("place", options_from_collection_for_select(Home.unique_by_place, :place, :place), {class: 'form-control', prompt: 'Select'})%>
 
           <label for="checkin">CHECK IN</label>
-          <input id="checkin_val" name="checkin_val"  align="justified" type="date"/>
-
+          <input  name="checkin_val" id="checkin_val"  align="justified" type="date" >
+          
           <label for="checkout">CHECK OUT</label>
-          <input  name="checkout_val" id="checkout_val" align="justified" type="date"/>
+          <input  name="checkout_val" id="checkout_val"  align="justified" type="date" />
 
           <label for="adults">ADULTS</label>
           <%= select_tag(:adults, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5],['6',6]])) %>

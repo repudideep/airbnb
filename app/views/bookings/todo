@@ -1,0 +1,4 @@
+1. paginate size customize:: 30 by default 
+2. know scopes for ruby variables: @, @@, [a-z]or _, [A-Z], $
+3. why is remember_token needed in before_save
+4. when doing pagination, pass the required states back to the server

@@ -1,19 +1,17 @@
 <% provide(:title, 'All homes') %>
 
 <%if @homes.any? %>
+	<div class="row">
+		<h1>Homes in <%= @homes.first.place %></h1>
+		
 
-<div class="row">
-<h1>Homes in <%= @homes.first.place %></h1>
-			
- 	<ol class="homes" >
-   		
+	 	<%= will_paginate @homes %>
+ 		<ol class="homes" >		
       		<%= render @homes %>
-    	
-    </ol>
-
- 		 <%= will_paginate @homes %>
+    	</ol>
+ 		 <%= will_paginate @homes, params: {place: @homes.first.place} %>
     </div>
 
-  <% else %>
+ <% else %>
   <h1>No homes found vacant!</h1>
-  <% end %>
+<% end %>
