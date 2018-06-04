@@ -1,23 +1,31 @@
 <% provide(:title, 'Home') %>
-    <div class="span8">
+    <div class="row" align="center">
+      <div class="span8" align="left">
       <h1> Search for Homes </h1>
 
       <%= form_tag search_path do %>
           <label for="place">PLACE</label>
           <%= select_tag("place", options_from_collection_for_select(Home.unique_by_place, :place, :place), {class: 'form-control', prompt: 'Select'})%>
 
-          <label for="checkin">CHECK IN</label>
-          <input  name="checkin_val" id="checkin_val"  align="justified" type="date" >
-          
-          <label for="checkout">CHECK OUT</label>
-          <input  name="checkout_val" id="checkout_val"  align="justified" type="date" />
-
           <label for="adults">ADULTS</label>
           <%= select_tag(:adults, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5],['6',6]])) %>
 
           <label for="children">CHILDREN</label>
           <%= select_tag("children", options_for_select([['0',0],['1',1],['2',2],['3',3],['4',4]])) %>
-  
+
+
+          <label for="checkin">CHECK IN</label>
+          <input type="text" name="checkin_val" id="checkin_val" data-provide='datepicker' 
+          data-date-format="yyyy-mm-dd" data-date-start-date=+0d data-date-end-date=+3m >
+          <!-- <input  name="checkin_val" id="checkin_val"  align="justified" type="date" > -->
+          
+          <label for="checkout">CHECK OUT</label>
+          <input type="text" name="checkout_val"  id="checkout_val" data-provide='datepicker' 
+          data-date-format="yyyy-mm-dd" data-date-start-date=+0d data-date-end-date=+3m >
+          <!-- <input  name="checkout_val" id="checkout_val"  align="justified" type="date" /> -->
+
+                  
           <%= submit_tag "Search" %>
+            </div>
       <% end %>
     </div>

@@ -22,7 +22,7 @@ class HomesController < ApplicationController
   
 
       if bookings.any?
-        @homes= Home.where('place = ? AND id  NOT IN (?)',@place, bookings.collect {|b| b.home_id }).paginate(page: params[:page])
+        @homes= Home.where('place = ? AND id  NOT IN (?)',@place, bookings.collect {|b| b.home_id }).paginate(page: params[:page], :per_page => 1)
 
        
       else
